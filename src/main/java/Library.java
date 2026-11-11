@@ -19,18 +19,11 @@ public class Library {
         members.add(m);
     }
 
-
-
-
     // Lend an item to a member. The loan period depends on the kind of item and member.
     public void borrow(Member m, LendingItem item) {
     // if person is not a member
         if (m == null || !members.contains(m)) {
             throw new IllegalArgumentException("Error: Member is not registered with this library!");
-        }
-
-        if (!item.isAvailable()) {
-            throw new IllegalStateException("Item \"" + item.getTitle() + "\" is already on loan!");
         }
 
         if (!item.isAvailable()) {
@@ -47,18 +40,18 @@ public class Library {
         // Use encapsulated domain methods instead of raw field assignments
         item.checkout(m);
         m.addHistory("Borrowed " + item.getTitle());
-        loans.add(new Loan(m.getName(), item.getTitle(), loanDays));
+        loans.add(new Loan(m, item, loanDays));
 
         System.out.println("Lent \"" + item.getTitle() + "\" to " + m.getName() + " for " + loanDays + " days");
     }
 
     public void returnItem(LendingItem item) {
-        // Reset item status via domain method
+        // Reset item status
         item.returnItem();
 
-        // Complete the active loan via its domain method
+        // Complete the active loan
         for (Loan l : loans) {
-            if (l.getItemTitle().equals(item.getTitle()) && l.getStatus() == LoanStatus.ACTIVE) {
+            if (l.getItem().equals(item) && l.getStatus() == LoanStatus.ACTIVE) {
                 l.completeLoan();
             }
         }

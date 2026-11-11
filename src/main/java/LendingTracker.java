@@ -33,7 +33,6 @@ public class LendingTracker {
             System.out.println("⚠️ ACTION BLOCKED: " + e.getMessage());
         }
 
-
         lib.printReport();
     }
 }
