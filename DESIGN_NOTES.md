@@ -25,6 +25,11 @@ I fixed this by switching to a clean **Object-Oriented Design**. Now, responsibi
 * **What I did:** Added simple check-ins to make sure members are registered before borrowing, and caught program errors so they show up as clear warning banners (like `⚠️ ACTION BLOCKED`).
 * **Why I did it:** Library volunteers shouldn't be scared off by messy Java error screens (stack traces). Clear messages guide the user smoothly, and verifying members keeps random walk-ins from breaking system records.
 
+
+### E. Robust Object-Based Loans & Unique Item Tracking
+* **Decision:** Updated the `Loan` class to hold direct references to the `Member` and `LendingItem` objects rather than plain text strings (`itemTitle` and `memberName`).
+* **Why:** In the previous iteration, loans matched items by their string titles. This created a severe robustness risk where stocking two identical copies of a book would cause returning one copy to prematurely close active loans for both. By shifting to object-reference and unique instance tracking (`l.getItem().equals(item)`), multiple copies of the same item can now be borrowed, tracked, and returned completely independently.
+
 ---
 
 ## 3. Future-Proofing: Making E-Loans Easy to Add
