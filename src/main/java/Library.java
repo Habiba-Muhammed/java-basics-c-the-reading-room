@@ -87,7 +87,8 @@ public class Library {
         System.out.println("Items:");
         for (LendingItem i : items) {
             System.out.println("  \"" + i.getTitle() + "\" (" + i.getType() + "): " + i.getStatus()
-                    + (i.getCurrentBorrower() != null ? " - with " + i.getCurrentBorrower() : ""));
+                    // explicitly calling .getName() instead of printing the Member object directly
+                    + (i.getCurrentBorrower() != null ? " - with " + i.getCurrentBorrower().getName() : ""));
         }
         System.out.println("Active loans:");
         for (Loan l : loans) {
