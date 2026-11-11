@@ -19,8 +19,20 @@ public class Library {
         members.add(m);
     }
 
+
+
+
     // Lend an item to a member. The loan period depends on the kind of item and member.
     public void borrow(Member m, LendingItem item) {
+    // if person is not a member
+        if (m == null || !members.contains(m)) {
+            throw new IllegalArgumentException("Error: Member is not registered with this library!");
+        }
+
+        if (!item.isAvailable()) {
+            throw new IllegalStateException("Item \"" + item.getTitle() + "\" is already on loan!");
+        }
+
         if (!item.isAvailable()) {
             throw new IllegalStateException("Item \"" + item.getTitle() + "\" is already on loan!");
         }
