@@ -1,4 +1,4 @@
-class LendingItem {
+public class LendingItem {
     private final String title;
     private final ItemType type;   // "BOOK" or "AUDIO_KIT"
     private ItemStatus status; // "AVAILABLE" or "ON_LOAN"

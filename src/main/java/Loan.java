@@ -1,4 +1,4 @@
-class Loan {
+public class Loan {
     private final int id;
     private final String memberName;
     private final String itemTitle;

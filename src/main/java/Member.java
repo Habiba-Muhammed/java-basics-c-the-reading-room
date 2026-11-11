@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-class Member {
+public class Member {
     private final String name;
     private final MemberType kind; // "STANDARD" or "STUDENT"
     private final int id;
