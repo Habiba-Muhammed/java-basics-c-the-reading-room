@@ -1,12 +1,12 @@
 class LendingItem {
     private final String title;
-    private final String type;   // "BOOK" or "AUDIO_KIT"
+    private final ItemType type;   // "BOOK" or "AUDIO_KIT"
     private ItemStatus status; // "AVAILABLE" or "ON_LOAN"
     private Member currentBorrower;
     private final int id;
     private static int counter = 1;
 
-    public LendingItem(String title, String type) {
+    public LendingItem(String title, ItemType type) {
         this.id = counter++;
         this.title = title;
         this.type = type;
@@ -21,7 +21,7 @@ class LendingItem {
         return title;
     }
 
-    public String getType() {
+    public ItemType getType() {
         return type;
     }
 
