@@ -26,7 +26,13 @@ public class LendingTracker {
         lib.returnItem(audioCourse);
 
         // ... and the sort of thing that worries them:
-        lib.borrow(ama, novel); // the novel is already out with Kofi, but nothing stops this
+        try {
+            lib.borrow(ama, novel); // the novel is already out with Kofi, but now it's blocked!
+        } catch (IllegalStateException e) {
+            System.out.println();
+            System.out.println("⚠️ ACTION BLOCKED: " + e.getMessage());
+        }
+
 
         lib.printReport();
     }
