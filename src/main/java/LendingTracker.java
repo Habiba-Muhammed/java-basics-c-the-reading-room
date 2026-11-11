@@ -10,13 +10,13 @@ public class LendingTracker {
     public static void main(String[] args) {
         Library lib = new Library("The Reading Room");
 
-        LendingItem novel = new LendingItem("Things Fall Apart", "BOOK");
-        LendingItem audioCourse = new LendingItem("French Audio Course", "AUDIO_KIT");
+        LendingItem novel = new LendingItem("Things Fall Apart", ItemType.BOOK);
+        LendingItem audioCourse = new LendingItem("French Audio Course", ItemType.AUDIO_KIT);
         lib.addItem(novel);
         lib.addItem(audioCourse);
 
-        Member kofi = new Member("Kofi Mensah", "STANDARD");
-        Member ama = new Member("Ama Owusu", "STUDENT");
+        Member kofi = new Member("Kofi Mensah", MemberType.STANDARD);
+        Member ama = new Member("Ama Owusu", MemberType.STUDENT);
         lib.addMember(kofi);
         lib.addMember(ama);
 
